@@ -1,5 +1,5 @@
 import random
-
+from constants import stats, names, surnames, relationship_states
 class Card:
     def __init__(self,level):
             list_of_habilities_multiplier= level.copy()
@@ -13,7 +13,10 @@ class Card:
                 
             self.habilities = habilities
             self.Blood = int(min(habilities_value)*random.random()+sum(level))
-            self.name = random.choice(names)+ " " +random.choice(surname)
+            self.name = random.choice(names)+ " " +random.choice(surnames)
+            self.friendship = 0
+            self.love = 0
+            self.relationship = relationship_states["SOLDIER"]
     def show(self):
             return f"""
 name: {self.name}
@@ -25,4 +28,7 @@ Blood: {self.Blood}
     WIS: {self.habilities["WIS"]}
     SPD: {self.habilities["SPD"]}
             """
-        
+    def chat(self):
+          print("you just chatted")
+          self.friendship = self.friendship+1
+          print(f"Your friendshipp is now {self.friendship}")

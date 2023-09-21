@@ -1,6 +1,6 @@
 names= ["Rebeca","Ana","Catalina"]
 
-surname= ["The great", "Magnificent", "Milova", "Parka"]
+surnames= ["The great", "Magnificent", "Milova", "Parka"]
 
 stats=[
     "STR",
@@ -17,4 +17,10 @@ levels = {
     "epic": [3,3,4,4,4],
     "legendary": [3,4,4,5,5],
     "master": [5,5,5,5,5]
+}
+
+relationship_states= {
+    "SOLDIER":0,
+    "FRIEND":1,
+    "LOVE":2
 }
