@@ -12,3 +12,4 @@ print(one.flirt())
 print(one.flirt())
 print(one.flirt())
 print(one.flirt())
+
