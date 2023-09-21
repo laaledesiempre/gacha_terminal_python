@@ -1,5 +1,6 @@
 import random
-from .constants import stats, names, surnames, relationship_states
+from .constants import stats, names, surnames, relationship_states, age_range, relationship_adder
+
 class Card:
     def __init__(self,level):
             list_of_habilities_multiplier= level.copy()
@@ -12,11 +13,21 @@ class Card:
                 habilities[x]=habilities_value[i]
                 
             self.habilities = habilities
+
             self.Blood = int(min(habilities_value)*random.random()+sum(level))
+
             self.name = random.choice(names)+ " " +random.choice(surnames)
+
+            self.age = random.randrange(age_range[0],age_range[1])
+
             self.friendship = 0
+
             self.love = 0
+
             self.relationship = relationship_states["SOLDIER"]
+
+#---
+
     def show(self):
             return f"""
 name: {self.name}
@@ -28,7 +39,35 @@ Blood: {self.Blood}
     WIS: {self.habilities["WIS"]}
     SPD: {self.habilities["SPD"]}
             """
+#---
+
     def chat(self):
-          print("you just chatted")
-          self.friendship = self.friendship+1
+          print("you just chatted (wip)")
+          self.friendship = min([self.friendship + relationship_adder, 255])
           print(f"Your friendshipp is now {self.friendship}")
+          self.check_relationship()
+#---
+    
+    def flirt(self):
+          print("you just flirt (wip)")
+          self.friendship = min([self.friendship + relationship_adder, 255])
+          print(f"Your friendshipp is now {self.friendship}")
+          self.check_relationship()
+#---
+
+    def check_relationship(self):
+          if self.friendship > 100 and self.relationship == relationship_states["SOLDIER"]:
+                print("now you are friends")
+                self.relationship = relationship_states["FRIEND"]
+          if self.friendship > 220 and self.relationship == relationship_states["FRIEND"]:
+                print("now you are Best Friends!")
+                self.check_relationship = relationship_states["BEST_FRIENDS"]
+          if self.love > 100 and self.relationship == relationship_states["SOLDIER"]:
+                print("now this is your love!")
+                self.check_relationship = relationship_states["LOVE"]
+          if self.friendship > 220 and self.relationship == relationship_states["LOVE"]:
+                print("now this is a true love!")
+                self.check_relationship = relationship_states["TRUE_LOVE"]
+#---
+    
+

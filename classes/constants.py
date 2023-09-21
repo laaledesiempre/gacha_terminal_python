@@ -22,5 +22,11 @@ levels = {
 relationship_states= {
     "SOLDIER":0,
     "FRIEND":1,
-    "LOVE":2
+    "LOVE":2,
+    "BEST_FRIENDS":3,
+    "TRUE_LOVE":4
 }
+
+age_range=[18,35]
+
+relationship_adder = 50
