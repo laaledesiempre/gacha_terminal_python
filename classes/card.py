@@ -1,5 +1,5 @@
 import random
-from constants import stats, names, surnames, relationship_states
+from .constants import stats, names, surnames, relationship_states
 class Card:
     def __init__(self,level):
             list_of_habilities_multiplier= level.copy()
