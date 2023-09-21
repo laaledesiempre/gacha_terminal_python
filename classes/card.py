@@ -44,14 +44,14 @@ Blood: {self.Blood}
     def chat(self):
           print("you just chatted (wip)")
           self.friendship = min([self.friendship + relationship_adder, 255])
-          print(f"Your friendshipp is now {self.friendship}")
+          print(f"Your friendship is now {self.friendship}")
           self.check_relationship()
 #---
     
     def flirt(self):
           print("you just flirt (wip)")
-          self.friendship = min([self.friendship + relationship_adder, 255])
-          print(f"Your friendshipp is now {self.friendship}")
+          self.love = min([self.love + relationship_adder, 255])
+          print(f"Your love is now {self.love}")
           self.check_relationship()
 #---
 
@@ -61,13 +61,13 @@ Blood: {self.Blood}
                 self.relationship = relationship_states["FRIEND"]
           if self.friendship > 220 and self.relationship == relationship_states["FRIEND"]:
                 print("now you are Best Friends!")
-                self.check_relationship = relationship_states["BEST_FRIENDS"]
+                self.relationship = relationship_states["BEST_FRIENDS"]
           if self.love > 100 and self.relationship == relationship_states["SOLDIER"]:
                 print("now this is your love!")
-                self.check_relationship = relationship_states["LOVE"]
+                self.relationship = relationship_states["LOVE"]
           if self.friendship > 220 and self.relationship == relationship_states["LOVE"]:
                 print("now this is a true love!")
-                self.check_relationship = relationship_states["TRUE_LOVE"]
+                self.relationship = relationship_states["TRUE_LOVE"]
 #---
     
 
