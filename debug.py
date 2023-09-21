@@ -24,27 +24,29 @@ while True:
             except:
                 print("No valid number")
 
-            for _ in range(amount):
-                cards.append(Card(levels[random.choise(levels.keys())]))
+        for _ in range(amount):
+            cards.append(Card(levels[random.choice(list(levels.keys()))]))
             
-            print(f"Added {amount} of Cards")
+            
+        print(f"Added {amount} of Cards")
     
     elif option == "2":
         cards = []
         print("Cards erased")
     elif option == "3":
         for i, x in enumerate(cards):
-            print(f"i :{x.name}")
-        number = input("Choose a number or write anything to exit")
+            print(f"{i} :{x.name}")
+        number = input("Choose a number or write anything to exit: ")
         try:
             card_selected = cards[int(number)]
             while True:
                 print(f"""
-                Options:
-                    1) chat.
-                    2) flirt.
-                    3) show.
-                    else) exit 
+{card_selected.name}
+            Options:
+                1) chat.
+                2) flirt.
+                3) show.
+                else) exit 
                 """)
                 selected = input("select: ")
                 if selected == "1":
@@ -52,7 +54,7 @@ while True:
                 elif selected == "2":
                     card_selected.flirt()
                 elif selected == "3":
-                    card_selected.show()           
+                    print(card_selected.show())    
                 else:
                     break
         except:

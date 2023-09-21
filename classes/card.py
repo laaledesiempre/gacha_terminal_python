@@ -65,7 +65,7 @@ Blood: {self.Blood}
           if self.love > 100 and self.relationship == relationship_states["SOLDIER"]:
                 print("now this is your love!")
                 self.relationship = relationship_states["LOVE"]
-          if self.friendship > 220 and self.relationship == relationship_states["LOVE"]:
+          if self.love> 220 and self.relationship == relationship_states["LOVE"]:
                 print("now this is a true love!")
                 self.relationship = relationship_states["TRUE_LOVE"]
 #---
