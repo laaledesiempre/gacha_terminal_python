@@ -1,10 +1,21 @@
 import random
+typos={
+    "TIPO_A":"tipo a",
+}
+
 preguntas= [
     {"pregunta":"Pregunta 1", "respuesta":{
         "tipo a":["respuesta a 1 1","respuesta a 2 1"],
         "tipo b":["respuesta b 1 1","respuesta b 2 1"],
         "tipo c":["respuesta c 1 1","respuesta c 2 1"],
-        "tipo d":["respuesta d 1 1","respuesta d 2 1"]
+        "tipo d":["respuesta d 1 1","respuesta d 2 1"],
+        "typos_effect":{
+            "tipo a": -20,
+            "tipo b": 30,
+            "tipo c": -20,
+            "tipo d": 30
+        }
+        
     }},
      {"pregunta":"Pregunta 2", "respuesta":{
         "tipo a":["respuesta a 1","respuesta a 2"],
