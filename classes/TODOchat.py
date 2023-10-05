@@ -1,6 +1,10 @@
 import random
 TYPOS={
-    "TIPO_A":"tipo a",
+    "SHY":"shy",
+    "FUNNY":"funny",
+    "SERIOUS":"serious",
+    "OBEDIENT":"obedient",
+    
 }
 INTERACTION_EFFECT={
     "POSITIVE":50,
@@ -12,30 +16,43 @@ INTERACTION_EFFECT={
     "AWFUL":-50
 }
 preguntas= [
-    {"pregunta":"Pregunta 1", "respuesta":{
-        "tipo a":["respuesta a 1 1","respuesta a 2 1"],
-        "tipo b":["respuesta b 1 1","respuesta b 2 1"],
-        "tipo c":["respuesta c 1 1","respuesta c 2 1"],
-        "tipo d":["respuesta d 1 1","respuesta d 2 1"],
+    {"pregunta":"¿Como estas?", "respuesta":{
+        TYPOS["SHY"]:["Oh, emm, me encuentro bien, gracias por preguntar","D..De verdad le importa? gracias, me encuentro bien"],
+        TYPOS["FUNNY"]:["Bien, pasa algo?","Ja, bien"],
+        "serious":["No creo que sea importante","Creo que hay cosas mas importantes ahora"],
+        "obedient":["Deberia estar haciendo algo verdad? lo lamento! me pondre a trabajar","Mis sentimientos siempre detras del deber, entendido"],
         "typos_effect":{
-            "tipo a": INTERACTION_EFFECT["BAD"],
-            "tipo b": INTERACTION_EFFECT["BAD"],
-            "tipo c": INTERACTION_EFFECT["BAD"],
-            "tipo d": INTERACTION_EFFECT["BAD"]
+            "shy": INTERACTION_EFFECT["OK"],
+            "funny": INTERACTION_EFFECT["IGNORED"],
+            "serious": INTERACTION_EFFECT["IGNORED"],
+            "obedient": INTERACTION_EFFECT["DISLIKE"]
             }
         
     }},
-     {"pregunta":"Pregunta 2", "respuesta":{
-        "tipo a":["respuesta a 1","respuesta a 2"],
-        "tipo b":["respuesta b 1","respuesta b 2"],
-        "tipo c":["respuesta c 1","respuesta c 2"],
-        "tipo d":["respuesta d 1","respuesta d 2"]
-     }},
-      {"pregunta":"Pregunta 3", "respuesta":{
-        "tipo a":["respuesta a 1","respuesta a 2"],
-        "tipo b":["respuesta b 1","respuesta b 2"],
-        "tipo c":["respuesta c 1","respuesta c 2"],
-        "tipo d":["respuesta d 1","respuesta d 2"]
+     {"pregunta":"¿Que haces?", "respuesta":{
+        "shy":["Oh, ¿me estuvo observando? ","OH me asusto!"],
+        "funny":["¿Que le importa? es broma... je","Oh... emmm, algo... creo"],
+        "serious":["Trabajando","Lo que usted me pido"],
+        "obedient":["Mi deber , como debe ser!","Lo que usted ordene! estoy para servirle!"],
+        "typos_effect":{
+            "shy": INTERACTION_EFFECT["DISLIKE"],
+            "funny": INTERACTION_EFFECT["DISLIKED"],
+            "serious": INTERACTION_EFFECT["IGNORED"],
+            "obedient": INTERACTION_EFFECT["LITTLE_POSITIVE"]
+            }
+    }},
+
+      {"pregunta":"¿Puedo ayudarte?", "respuesta":{
+        "tipo a":["Yo... yo creo que puedo sola, pero gracias","Oh, de... de verdad haria eso por mi?"],
+        "tipo b":["Cree que soy inutil acaso? bha, me vendria bien alguien con quien charlar","See, por que no?"],
+        "tipo c":["No","Dejeme trabajar en paz porfavor"],
+        "tipo d":["Soy completamente capaz de cada tarea que me ordene! no hace falta su participacion","respuesta d 2"],
+        "typos_effect":{
+            "shy": INTERACTION_EFFECT["LITTLE_POSITIVE"],
+            "funny": INTERACTION_EFFECT["OK"],
+            "serious": INTERACTION_EFFECT["BAD"],
+            "obedient": INTERACTION_EFFECT["DISLIKE"]
+            }
       }}
     ]
 def chat(tipo):
@@ -52,4 +69,4 @@ def chat(tipo):
 
 
 
-chat("tipo b")
+chat(TYPOS["SHY"])
